@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   3rd Anniversary - Debesh &amp; Stuti
+  </title>
+  <link rel="icon" type="image/png" href="Gemini_Generated_Image_65vmi265vmi265vm.png">
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&amp;family=Montserrat&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+    font-family: 'Montserrat', sans-serif;
+    background: #fff0f6;
+    overflow-x: hidden;
+  }
+  .cursive {
+    font-family: 'Dancing Script', cursive;
+  }
+  /* Floating hearts animation */
+  .heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #f43f5e;
+    transform: rotate(-45deg);
+    animation: floatUp linear infinite;
+    opacity: 0.8;
+  }
+  .heart:before,
+  .heart:after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #f43f5e;
+    border-radius: 50%;
+  }
+  .heart:before {
+    top: -10px;
+    left: 0;
+  }
+  .heart:after {
+    left: 10px;
+    top: 0;
+  }
+  @keyframes floatUp {
+    0% {
+      transform: translateY(0) rotate(-45deg);
+      opacity: 0.8;
+    }
+    100% {
+      transform: translateY(-300px) rotate(-45deg);
+      opacity: 0;
+    }
+  }
+  /* Rose petals falling */
+  .petal {
+    position: fixed;
+    width: 15px;
+    height: 15px;
+    background: #f9a8d4;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    opacity: 0.9;
+    animation: fall linear infinite;
+    filter: drop-shadow(0 0 1px #db2777);
+  }
+  @keyframes fall {
+    0% {
+      transform: translateY(-20px) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(110vh) rotate(360deg);
+      opacity: 0;
+    }
+  }
+  /* Glowing stars */
+  .star {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #fcd34d;
+    border-radius: 50%;
+    box-shadow: 0 0 6px 2px #fcd34d;
+    animation: twinkle 3s infinite alternate;
+  }
+  @keyframes twinkle {
+    0% {
+      opacity: 0.3;
+      transform: scale(1);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1.3);
+    }
+  }
+  /* Scrollbar styling for timeline */
+  ::-webkit-scrollbar {
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #fce7f3;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #db2777;
+    border-radius: 4px;
+  }
+  /* Envelope animation */
+  .envelope {
+    cursor: pointer;
+    perspective: 1000px;
+  }
+  .envelope-inner {
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    position: relative;
+  }
+  .envelope.open .envelope-inner {
+    transform: rotateY(180deg);
+  }
+  .envelope-front,
+  .envelope-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 10px rgba(219, 39, 119, 0.3);
+  }
+  .envelope-front {
+    background: linear-gradient(135deg, #f9a8d4, #db2777);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    font-size: 1.25rem;
+    font-weight: 600;
+    user-select: none;
+  }
+  .envelope-back {
+    background: #fff0f6;
+    color: #9d174d;
+    transform: rotateY(180deg);
+    padding: 1.5rem;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.125rem;
+    height: auto; /* Adjust height to fit content */
+    overflow-y: visible;
+  }
+  /* Gallery hover */
+  .gallery-item {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.75rem;
+  }
+  .gallery-item:hover img {
+    transform: scale(1.1);
+    opacity: 0.9;
+  }
+  .gallery-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(219, 39, 119, 0.8);
+    color: white;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1rem;
+    padding: 0.25rem 0.5rem;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .gallery-item:hover .gallery-caption {
+    opacity: 1;
+  }
+  /* Fireworks container */
+  #fireworks {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 50;
+  }
+  /* Mini game hearts */
+  .game-heart {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: #f43f5e;
+    transform: rotate(-45deg);
+    cursor: pointer;
+    user-select: none;
+  }
+  .game-heart:before,
+  .game-heart:after {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: #f43f5e;
+    border-radius: 50%;
+  }
+  .game-heart:before {
+    top: -15px;
+    left: 0;
+  }
+  .game-heart:after {
+    left: 15px;
+    top: 0;
+  }
+  /* Scrollbar for notes */
+  .note-scroll {
+    max-height: 250px;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+  }
+  /* Scrollbar styling for notes */
+  .note-scroll::-webkit-scrollbar {
+    width: 6px;
+  }
+  .note-scroll::-webkit-scrollbar-track {
+    background: #fce7f3;
+  }
+  .note-scroll::-webkit-scrollbar-thumb {
+    background: #db2777;
+    border-radius: 3px;
+  }
+  /* Hidden page fade */
+  .hidden-page {
+    animation: fadeIn 1s ease forwards;
+    opacity: 0;
+  }
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* Typewriter effect */
+  .typewriter-cursor {
+      display: inline-block;
+      width: 3px;
+      height: 1em;
+      background-color: #db2777;
+      animation: blink 0.7s infinite;
+      vertical-align: text-bottom;
+  }
+  @keyframes blink {
+      50% { opacity: 0; }
+  }
+
+  /* Scroll animation styles */
+  .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  .animate-on-scroll.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+  }
+  </style>
+ </head>
+ <body class="relative bg-gradient-to-b from-pink-50 to-pink-100 text-pink-900">
+  <div class="pointer-events-none fixed inset-0 -z-10" id="floating-hearts">
+  </div>
+  <div class="pointer-events-none fixed inset-0 -z-10 hidden" id="falling-petals">
+  </div>
+  <div class="pointer-events-none fixed inset-0 -z-20" id="glowing-stars">
+  </div>
+  <canvas class="hidden" id="fireworks">
+  </canvas>
+  <audio id="bg-music" loop="" preload="auto" src="Tum Ho Toh Saiyaara 128 Kbps.mp3">
+  </audio>
+  <nav class="fixed top-0 left-0 w-full bg-pink-100 bg-opacity-80 backdrop-blur-sm z-40 shadow-md">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+    <a class="text-2xl cursive text-pink-700 font-semibold select-none" href="#hero">
+     #StuDev
+    </a>
+    <div class="space-x-4 text-pink-700 font-semibold text-sm sm:text-base">
+     <a class="hover:text-pink-900 transition" href="#timeline">
+      Timeline
+     </a>
+     <a class="hover:text-pink-900 transition" href="#love-letters">
+      Love Letters
+     </a>
+     <a class="hover:text-pink-900 transition" href="#gallery">
+      Gallery
+     </a>
+     <a class="hover:text-pink-900 transition" href="#game">
+      Game
+     </a>
+     <a class="hover:text-pink-900 transition" href="#quiz">
+      Quiz
+     </a>
+     <a class="hover:text-pink-900 transition" href="#secret">
+      Secret
+     </a>
+     <a class="hover:text-pink-900 transition" href="#ending">
+      Ending
+     </a>
+    </div>
+   </div>
+  </nav>
+  <section class="relative flex flex-col justify-center items-center h-screen text-center px-4 pt-20" id="hero">
+   <h1 id="hero-title" class="cursive text-5xl sm:text-7xl font-extrabold text-pink-700 drop-shadow-lg select-none">
+    </h1>
+   <button aria-label="Toggle background music" class="mt-8 px-6 py-3 bg-pink-600 hover:bg-pink-700 text-white rounded-full shadow-lg focus:outline-none focus:ring-4 focus:ring-pink-300 transition" id="music-toggle" >
+    Play Music
+    <i class="fas fa-music ml-2">
+    </i>
+   </button>
+  </section>
+  <section class="max-w-6xl mx-auto px-6 py-16 scroll-mt-20" id="timeline">
+   <h2 class="text-4xl cursive text-pink-700 font-bold mb-12 text-center select-none animate-on-scroll">
+    Timeline of Our Love
+   </h2>
+   <div class="overflow-x-auto scrollbar-thin scrollbar-thumb-pink-600 scrollbar-track-pink-200">
+    <div class="flex space-x-10 min-w-[900px]">
+     <div aria-describedby="desc1" class="timeline-item flex-shrink-0 w-64 bg-pink-50 rounded-2xl shadow-lg p-6 cursor-pointer relative group animate-on-scroll" role="button" tabindex="0">
+      <div class="text-pink-700 font-semibold text-xl mb-2 cursive select-none">
+       First Meeting
+      </div>
+      <img alt="A warm, candid photo of Debesh and Stuti smiling at their first meeting in a cozy cafe with soft pink lighting" class="rounded-lg mb-3 object-cover w-full h-40" height="200" src="first_meet.jpg" width="300"/>
+      <p class="text-pink-600 text-sm line-clamp-3" id="desc1">
+        Planned with love, lived with magic, our first meet forever.
+      </p>
+      <div class="absolute top-4 right-4 text-pink-400 opacity-0 group-hover:opacity-100 transition">
+       <i class="fas fa-heart fa-lg">
+       </i>
+      </div>
+     </div>
+     <div aria-describedby="desc2" class="timeline-item flex-shrink-0 w-64 bg-pink-50 rounded-2xl shadow-lg p-6 cursor-pointer relative group animate-on-scroll" style="transition-delay: 100ms;" role="button" tabindex="0">
+      <div class="text-pink-700 font-semibold text-xl mb-2 cursive select-none">
+       First Quality Time
+      </div>
+      <img alt="Romantic photo of Debesh and Stuti holding hands on their first date at a sunset beach with pastel skies" class="rounded-lg mb-3 object-cover w-full h-40" height="200" src="first_qualitytime.jpg" width="300"/>
+      <p class="text-pink-600 text-sm line-clamp-3" id="desc2">
+        Endless talks, golden sunset, Risigaon gave us timeless memories together.
+      </p>
+      <div class="absolute top-4 right-4 text-pink-400 opacity-0 group-hover:opacity-100 transition">
+       <i class="fas fa-heart fa-lg">
+       </i>
+      </div>
+     </div>
+     <div aria-describedby="desc3" class="timeline-item flex-shrink-0 w-64 bg-pink-50 rounded-2xl shadow-lg p-6 cursor-pointer relative group animate-on-scroll" style="transition-delay: 200ms;" role="button" tabindex="0">
+      <div class="text-pink-700 font-semibold text-xl mb-2 cursive select-none">
+       First Visit To Vizag
+      </div>
+      <img alt="Collage photo of Debesh and Stuti exploring mountains, beaches, and city streets, smiling and happy" class="rounded-lg mb-3 object-cover w-full h-40" height="200" src="First_VisitVizag.jpg" width="300"/>
+      <p class="text-pink-600 text-sm line-clamp-3" id="desc3">
+        Brief visit, ocean breeze, Vizag’s shore sealed our first kiss forever.
+      </p>
+      <div class="absolute top-4 right-4 text-pink-400 opacity-0 group-hover:opacity-100 transition">
+       <i class="fas fa-heart fa-lg">
+       </i>
+      </div>
+     </div>
+     <div aria-describedby="desc4" class="timeline-item flex-shrink-0 w-64 bg-pink-50 rounded-2xl shadow-lg p-6 cursor-pointer relative group animate-on-scroll" style="transition-delay: 300ms;" role="button" tabindex="0">
+      <div class="text-pink-700 font-semibold text-xl mb-2 cursive select-none">
+       Reunion After First Fight
+      </div>
+      <img alt="Photo of Debesh and Stuti celebrating their 3rd anniversary with candles, roses, and smiles in a warmly lit room" class="rounded-lg mb-3 object-cover w-full h-40" height="200" src="Reunion_After First Fight.png" width="300"/>
+      <p class="text-pink-600 text-sm line-clamp-3" id="desc4">
+        After storms and silence, love pulled us back, stronger than before.
+      </p>
+      <div class="absolute top-4 right-4 text-pink-400 opacity-0 group-hover:opacity-100 transition">
+       <i class="fas fa-heart fa-lg">
+       </i>
+      </div>
+     </div>
+     <div aria-describedby="desc5" class="timeline-item flex-shrink-0 w-64 bg-pink-50 rounded-2xl shadow-lg p-6 cursor-pointer relative group animate-on-scroll" style="transition-delay: 400ms;" role="button" tabindex="0">
+      <div class="text-pink-700 font-semibold text-xl mb-2 cursive select-none">
+       Visiting The Place I First Saw Her
+      </div>
+      <img alt="Photo of Debesh and Stuti celebrating their 3rd anniversary with candles, roses, and smiles in a warmly lit room" class="rounded-lg mb-3 object-cover w-full h-40" height="200" src="FirstQualityTime.png" width="300"/>
+      <p class="text-pink-600 text-sm line-clamp-3" id="desc5">
+        Back where it all began, where my eyes first found Stuti..
+      </p>
+      <div class="absolute top-4 right-4 text-pink-400 opacity-0 group-hover:opacity-100 transition">
+       <i class="fas fa-heart fa-lg">
+       </i>
+      </div>
+     </div>
+     <div aria-describedby="desc6" class="timeline-item flex-shrink-0 w-64 bg-pink-50 rounded-2xl shadow-lg p-6 cursor-pointer relative group animate-on-scroll" style="transition-delay: 500ms;" role="button" tabindex="0">
+      <div class="text-pink-700 font-semibold text-xl mb-2 cursive select-none">
+       Our Day Out At Vizag
+      </div>
+      <img alt="Photo of Debesh and Stuti celebrating their 3rd anniversary with candles, roses, and smiles in a warmly lit room" class="rounded-lg mb-3 object-cover w-full h-40" height="200" src="DayOut_Vizag.jpg" width="300"/>
+      <p class="text-pink-600 text-sm line-clamp-3" id="desc6">
+        From beaches to smiles, Vizag gave us memories stitched with love.
+      </p>
+      <div class="absolute top-4 right-4 text-pink-400 opacity-0 group-hover:opacity-100 transition">
+       <i class="fas fa-heart fa-lg">
+       </i>
+      </div>
+     </div>
+     <div aria-describedby="desc7" class="timeline-item flex-shrink-0 w-64 bg-pink-50 rounded-2xl shadow-lg p-6 cursor-pointer relative group animate-on-scroll" style="transition-delay: 600ms;" role="button" tabindex="0">
+      <div class="text-pink-700 font-semibold text-xl mb-2 cursive select-none">
+       Reunion After NEET
+      </div>
+      <img alt="Photo of Debesh and Stuti celebrating their 3rd anniversary with candles, roses, and smiles in a warmly lit room" class="rounded-lg mb-3 object-cover w-full h-40" height="200" src="Reunion After Neet.png" width="300"/>
+      <p class="text-pink-600 text-sm line-clamp-3" id="desc7">
+        Two months apart, love survived, our reunion felt like home again
+      </p>
+      <div class="absolute top-4 right-4 text-pink-400 opacity-0 group-hover:opacity-100 transition">
+       <i class="fas fa-heart fa-lg">
+       </i>
+      </div>
+     </div>
+     <div aria-describedby="desc8" class="timeline-item flex-shrink-0 w-64 bg-pink-50 rounded-2xl shadow-lg p-6 cursor-pointer relative group animate-on-scroll" style="transition-delay: 700ms;" role="button" tabindex="0">
+      <div class="text-pink-700 font-semibold text-xl mb-2 cursive select-none">
+       First Sunset Date Together
+      </div>
+      <img alt="Photo of Debesh and Stuti celebrating their 3rd anniversary with candles, roses, and smiles in a warmly lit room" class="rounded-lg mb-3 object-cover w-full h-40" height="200" src="First_sunset_date.jpg" width="300"/>
+      <p class="text-pink-600 text-sm line-clamp-3" id="desc8">
+        Skyline burned in hues, our love bloomed on first sunset date.
+      </p>
+      <div class="absolute top-4 right-4 text-pink-400 opacity-0 group-hover:opacity-100 transition">
+       <i class="fas fa-heart fa-lg">
+       </i>
+      </div>
+     </div>
+     <div aria-describedby="desc9" class="timeline-item flex-shrink-0 w-64 bg-pink-50 rounded-2xl shadow-lg p-6 cursor-pointer relative group animate-on-scroll" style="transition-delay: 800ms;" role="button" tabindex="0">
+      <div class="text-pink-700 font-semibold text-xl mb-2 cursive select-none">
+       Your First Visit To My Home
+      </div>
+      <img alt="Photo of Debesh and Stuti celebrating their 3rd anniversary with candles, roses, and smiles in a warmly lit room" class="rounded-lg mb-3 object-cover w-full h-40" height="200" src="Your_FirstVisit_Home.png" width="300"/>
+      <p class="text-pink-600 text-sm line-clamp-3" id="desc9">
+        Your presence turned four walls into love’s haven.
+      </p>
+      <div class="absolute top-4 right-4 text-pink-400 opacity-0 group-hover:opacity-100 transition">
+       <i class="fas fa-heart fa-lg">
+       </i>
+      </div>
+     </div>
+     <div aria-describedby="desc10" class="timeline-item flex-shrink-0 w-64 bg-pink-50 rounded-2xl shadow-lg p-6 cursor-pointer relative group animate-on-scroll" style="transition-delay: 900ms;" role="button" tabindex="0">
+      <div class="text-pink-700 font-semibold text-xl mb-2 cursive select-none">
+       Surprising You In Dharmagarh
+      </div>
+      <img alt="Photo of Debesh and Stuti celebrating their 3rd anniversary with candles, roses, and smiles in a warmly lit room" class="rounded-lg mb-3 object-cover w-full h-40" height="200" src="Surprise Visit DMG.png" width="300"/>
+      <p class="text-pink-600 text-sm line-clamp-3" id="desc10">
+        Journey worth every step, just to see your priceless surprised smile.
+      </p>
+      <div class="absolute top-4 right-4 text-pink-400 opacity-0 group-hover:opacity-100 transition">
+       <i class="fas fa-heart fa-lg">
+       </i>
+      </div>
+     </div>
+     <div aria-describedby="desc11" class="timeline-item flex-shrink-0 w-64 bg-pink-50 rounded-2xl shadow-lg p-6 cursor-pointer relative group animate-on-scroll" style="transition-delay: 1000ms;" role="button" tabindex="0">
+      <div class="text-pink-700 font-semibold text-xl mb-2 cursive select-none">
+       First Proper Date In Vizag
+      </div>
+      <img alt="Photo of Debesh and Stuti celebrating their 3rd anniversary with candles, roses, and smiles in a warmly lit room" class="rounded-lg mb-3 object-cover w-full h-40" height="200" src="First_Date.jpg" width="300"/>
+      <p class="text-pink-600 text-sm line-clamp-3" id="desc11">
+        Vizag gave us waves, sunsets, and our most beautiful first date
+      </p>
+      <div class="absolute top-4 right-4 text-pink-400 opacity-0 group-hover:opacity-100 transition">
+       <i class="fas fa-heart fa-lg">
+       </i>
+      </div>
+     </div>
+     <div aria-describedby="desc12" class="timeline-item flex-shrink-0 w-64 bg-pink-50 rounded-2xl shadow-lg p-6 cursor-pointer relative group animate-on-scroll" style="transition-delay: 1100ms;" role="button" tabindex="0">
+      <div class="text-pink-700 font-semibold text-xl mb-2 cursive select-none">
+       Meeting After A Long Break
+      </div>
+      <img alt="Photo of Debesh and Stuti celebrating their 3rd anniversary with candles, roses, and smiles in a warmly lit room" class="rounded-lg mb-3 object-cover w-full h-40" height="200" src="Navratri_Meet.jpg" width="300"/>
+      <p class="text-pink-600 text-sm line-clamp-3" id="desc12">
+        After long days apart, Navratri gifted us the joy of togetherness.
+      </p>
+      <div class="absolute top-4 right-4 text-pink-400 opacity-0 group-hover:opacity-100 transition">
+       <i class="fas fa-heart fa-lg">
+       </i>
+      </div>
+     </div>
+     <div aria-describedby="desc13" class="timeline-item flex-shrink-0 w-64 bg-pink-50 rounded-2xl shadow-lg p-6 cursor-pointer relative group animate-on-scroll" style="transition-delay: 1200ms;" role="button" tabindex="0">
+      <div class="text-pink-700 font-semibold text-xl mb-2 cursive select-none">
+       Surprising You For NewYear
+      </div>
+      <img alt="Photo of Debesh and Stuti celebrating their 3rd anniversary with candles, roses, and smiles in a warmly lit room" class="rounded-lg mb-3 object-cover w-full h-40" height="200" src="NewYear_Surprise.png" width="300"/>
+      <p class="text-pink-600 text-sm line-clamp-3" id="desc13">
+        Your shocked smile at midnight made my New Year unforgettable forever.
+      </p>
+      <div class="absolute top-4 right-4 text-pink-400 opacity-0 group-hover:opacity-100 transition">
+       <i class="fas fa-heart fa-lg">
+       </i>
+      </div>
+     </div>
+     <div aria-describedby="desc14" class="timeline-item flex-shrink-0 w-64 bg-pink-50 rounded-2xl shadow-lg p-6 cursor-pointer relative group animate-on-scroll" style="transition-delay: 1300ms;" role="button" tabindex="0">
+      <div class="text-pink-700 font-semibold text-xl mb-2 cursive select-none">
+       Your 19th Birthday
+      </div>
+      <img alt="Photo of Debesh and Stuti celebrating their 3rd anniversary with candles, roses, and smiles in a warmly lit room" class="rounded-lg mb-3 object-cover w-full h-40" height="200" src="Her 19th Bday.png" width="300"/>
+      <p class="text-pink-600 text-sm line-clamp-3" id="desc14">
+        Your 19th birthday, but i was the one feeling truly blessed.
+      </p>
+      <div class="absolute top-4 right-4 text-pink-400 opacity-0 group-hover:opacity-100 transition">
+       <i class="fas fa-heart fa-lg">
+       </i>
+      </div>
+     </div>
+     <div aria-describedby="desc15" class="timeline-item flex-shrink-0 w-64 bg-pink-50 rounded-2xl shadow-lg p-6 cursor-pointer relative group animate-on-scroll" style="transition-delay: 1400ms;" role="button" tabindex="0">
+      <div class="text-pink-700 font-semibold text-xl mb-2 cursive select-none">
+       Meeting After Our Main Exams
+      </div>
+      <img alt="Photo of Debesh and Stuti celebrating their 3rd anniversary with candles, roses, and smiles in a warmly lit room" class="rounded-lg mb-3 object-cover w-full h-40" height="200" src="Reunion_afterbig_fight.png" width="300"/>
+      <p class="text-pink-600 text-sm line-clamp-3" id="desc15">
+        Four months apart, countless calls, and finally this perfect reunion.
+      </p>
+      <div class="absolute top-4 right-4 text-pink-400 opacity-0 group-hover:opacity-100 transition">
+       <i class="fas fa-heart fa-lg">
+       </i>
+      </div>
+     </div>
+     <div aria-describedby="desc16" class="timeline-item flex-shrink-0 w-64 bg-pink-50 rounded-2xl shadow-lg p-6 cursor-pointer relative group animate-on-scroll" style="transition-delay: 1500ms;" role="button" tabindex="0">
+      <div class="text-pink-700 font-semibold text-xl mb-2 cursive select-none">
+       Our Scooty Date
+      </div>
+      <img alt="Photo of Debesh and Stuti celebrating their 3rd anniversary with candles, roses, and smiles in a warmly lit room" class="rounded-lg mb-3 object-cover w-full h-40" height="200" src="Scooty_Dates.png" width="300"/>
+      <p class="text-pink-600 text-sm line-clamp-3" id="desc16">
+        Balancing scooty and love, learning together made memories unforgettable.
+      </p>
+      <div class="absolute top-4 right-4 text-pink-400 opacity-0 group-hover:opacity-100 transition">
+       <i class="fas fa-heart fa-lg">
+       </i>
+      </div>
+     </div>
+     <div aria-describedby="desc17" class="timeline-item flex-shrink-0 w-64 bg-pink-50 rounded-2xl shadow-lg p-6 cursor-pointer relative group animate-on-scroll" style="transition-delay: 1600ms;" role="button" tabindex="0">
+      <div class="text-pink-700 font-semibold text-xl mb-2 cursive select-none">
+       Celebrating Your Success
+      </div>
+      <img alt="Photo of Debesh and Stuti celebrating their 3rd anniversary with candles, roses, and smiles in a warmly lit room" class="rounded-lg mb-3 object-cover w-full h-40" height="200" src="Celebrating _YourSucess.jpg" width="300"/>
+      <p class="text-pink-600 text-sm line-clamp-3" id="desc17">
+        Your hard work paid off, today we celebrate dreams turning into reality.
+      </p>
+      <div class="absolute top-4 right-4 text-pink-400 opacity-0 group-hover:opacity-100 transition">
+       <i class="fas fa-heart fa-lg">
+       </i>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section>
+  <section class="max-w-5xl mx-auto px-6 py-16 scroll-mt-20" id="love-letters">
+   <h2 class="text-4xl cursive text-pink-700 font-bold mb-12 text-center select-none animate-on-scroll">
+    Love Letters
+   </h2>
+   <div class="flex flex-col sm:flex-row justify-center items-center gap-10">
+    <div aria-label="Open Past Love Letter" class="envelope w-64 h-40 animate-on-scroll" data-letter="past" role="button" tabindex="0">
+     <div class="envelope-inner rounded-xl shadow-lg">
+      <div class="envelope-front flex justify-center items-center cursive text-black font-semibold text-2xl select-none">
+       Past 💌
+      </div>
+      <div class="envelope-back p-6 text-pink-700 note-scroll">
+       <p>Puchkuuuuuu,</p>
+       <p>Sometimes, when I close my eyes, I find myself drifting back to our earliest days, those innocent beginnings where every word, every glance, and every small moment felt like magic. Do you remember how we used to talk endlessly, as if the world outside didn’t exist? Every conversation felt like discovering a hidden part of myself I never knew was missing, and somehow, you were the key that unlocked it. I still remember the nervous excitement of our first plans, the butterflies that wouldn’t rest, and the way time seemed to fly whenever you were around. Those days were simple, yet so pure, just you, me, and the warmth of something new and beautiful growing between us. Looking back now, I realize those early moments shaped the foundation of everything we share today. They taught me what love feels like in its truest form—unplanned, honest, and endlessly comforting. Stuti, if I could go back, I’d relive those days a thousand times, not because I miss them, but because they remind me of how blessed I am to have you—then, now, and always.</p>
+       <p>Forever yours,<br/>Devuuuu</p>
+      </div>
+     </div>
+    </div>
+    <div aria-label="Open Present Love Letter" class="envelope w-64 h-40 animate-on-scroll" style="transition-delay: 150ms;" data-letter="present" role="button" tabindex="0">
+     <div class="envelope-inner rounded-xl shadow-lg">
+      <div class="envelope-front flex justify-center items-center cursive text-black font-semibold text-2xl select-none">
+       Present 💖
+      </div>
+      <div class="envelope-back p-6 text-pink-700 note-scroll">
+       <p>Mor Geluuu Dhanaaaa,</p>
+       <p>As I sit here in Burla, almost at the edge of completing my B.Tech, I can’t help but think of you in Bangalore, chasing your dreams in management with the same determination and fire I’ve always admired in you. Even though miles stretch between us, I feel your presence in every heartbeat, every quiet night, and every moment I imagine the future we’re building together. Life hasn’t been easy, both of us caught up in our own struggles, pushing ourselves harder every day, trying to carve out careers that will make us proud. Yet, in between all the stress, assignments, deadlines, and sleepless nights, there’s something constant, something unshaken, us. Our love has become the anchor that keeps me steady, the reminder that all this effort has meaning because, one day, it will lead me back to you. Sometimes, I wish I could pause time, sit beside you after a long day, share our little victories and failures, and remind you how much I love you. But until that day comes, I carry you in my heart like a prayer, like a promise, like a forever. Stuti, we’re not just balancing love and careers, we’re writing a story of resilience, faith, and unshakable commitment. One day, all these struggles will become memories, and we’ll look back proudly, knowing that even distance and challenges couldn’t break what we share. Until then, let’s keep going, hand in hand, heart to heart—even if the world keeps us apart.</p>
+       <p>Always yours,<br/>Devuuu</p>
+      </div>
+     </div>
+    </div>
+    <div aria-label="Open Future Love Letter" class="envelope w-64 h-40 animate-on-scroll" style="transition-delay: 300ms;" data-letter="future" role="button" tabindex="0">
+     <div class="envelope-inner rounded-xl shadow-lg">
+      <div class="envelope-front flex justify-center items-center cursive text-black font-semibold text-2xl select-none">
+       Future 💫
+      </div>
+      <div class="envelope-back p-6 text-pink-700 note-scroll">
+       <p>My forever Stuti,</p>
+       <p>My heart feels heavy with memories and light with dreams. Today, I find myself looking back at everything we’ve shared—and forward to everything we are yet to live. It feels like the perfect balance of past and future, all tied together by the one thing that has never changed, our love. Do you remember how it all began? Those shy smiles, the stolen glances, the first conversations that felt like home. Then came our firsts,our first beach walk, our first fight, our first kiss, our first reunion after long days apart. Each of those moments stitched us closer, like threads weaving a story only we could write. We’ve laughed, we’ve cried, we’ve fought, we’ve forgiven, and through it all, we’ve chosen each other, again and again. That, my love, is the most beautiful part of our story. Yet, even as I hold these memories close, my mind drifts to the future I dream for us. A future where distance no longer keeps us apart, where goodbyes are replaced by “see you tonight,” and where our everyday life becomes the dream we once longed for. I imagine us building a home together, not grand or perfect by the world’s standards, but perfect for us. A place filled with laughter, with warmth, with quiet mornings and endless late, night talks. A place where love isn’t just celebrated on anniversaries, but lived in the simplest of ways, over tea, over sunsets, over holding hands after a long day. I imagine us looking back years from now, sitting together on a balcony, watching the sky change colors, remembering how hard we fought for this life. We will smile at the struggles, at the long distances, at the sleepless nights of study and the miles between us, because they were the price of something so precious: forever. So today, as I celebrate us, I’m not just grateful for the journey behind us, I’m excited for the life ahead. Happy anniversary, my geluuuu, not just for the time we’ve completed, but for the forever we are stepping into.</p>
+       <p>Yours eternally,<br/>Devuuu</p>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section>
+  <section class="max-w-7xl mx-auto px-6 py-16 scroll-mt-20" id="gallery">
+   <h2 class="text-4xl cursive text-pink-700 font-bold mb-12 text-center select-none animate-on-scroll">
+    Gallery
+   </h2>
+   <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+    <div aria-label="Our First Coffee Date photo" class="gallery-item relative rounded-xl overflow-hidden shadow-lg cursor-pointer animate-on-scroll" tabindex="0">
+     <img alt="Debesh and Stuti smiling over coffee cups at a cozy cafe with warm pastel tones" class="w-full h-48 object-cover transition-transform duration-300" height="300" src="1.jpg" width="400"/>
+     <div class="gallery-caption">
+      Snap-Headed Couple📸
+     </div>
+    </div>
+    <div aria-label="That Rainy Day photo" class="gallery-item relative rounded-xl overflow-hidden shadow-lg cursor-pointer animate-on-scroll" style="transition-delay: 100ms;" tabindex="0">
+     <img alt="Debesh and Stuti sharing an umbrella and laughing in the rain with soft pink and red hues" class="w-full h-48 object-cover transition-transform duration-300" height="300" src="2.png" width="400"/>
+     <div class="gallery-caption">
+      PDA in Pizza-Hut🍕
+     </div>
+    </div>
+    <div aria-label="Sunset Beach Trip photo" class="gallery-item relative rounded-xl overflow-hidden shadow-lg cursor-pointer animate-on-scroll" style="transition-delay: 200ms;" tabindex="0">
+     <img alt="Debesh and Stuti walking hand in hand on a beach at sunset with pastel pink and gold skies" class="w-full h-48 object-cover transition-transform duration-300" height="300" src="3.png" width="400"/>
+     <div class="gallery-caption">
+      Morning Walk 🌅
+     </div>
+    </div>
+    <div aria-label="Birthday Celebration photo" class="gallery-item relative rounded-xl overflow-hidden shadow-lg cursor-pointer animate-on-scroll" style="transition-delay: 300ms;" tabindex="0">
+     <img alt="Debesh surprising Stuti with a birthday cake surrounded by pink balloons and golden decorations" class="w-full h-48 object-cover transition-transform duration-300" height="300" src="4.png" width="400"/>
+     <div class="gallery-caption">
+      Getting lost in your 👀
+     </div>
+    </div>
+    <div aria-label="Mountain Hike photo" class="gallery-item relative rounded-xl overflow-hidden shadow-lg cursor-pointer animate-on-scroll" style="transition-delay: 0ms;" tabindex="0">
+     <img alt="Debesh and Stuti smiling on a mountain trail with pastel blue skies and pink wildflowers" class="w-full h-48 object-cover transition-transform duration-300" height="300" src="5.png" width="400"/>
+     <div class="gallery-caption">
+      Getting ready for our first date !
+     </div>
+    </div>
+    <div aria-label="Cozy Winter Night photo" class="gallery-item relative rounded-xl overflow-hidden shadow-lg cursor-pointer animate-on-scroll" style="transition-delay: 100ms;" tabindex="0">
+     <img alt="Debesh and Stuti cuddled up by a fireplace with warm pink and gold lighting" class="w-full h-48 object-cover transition-transform duration-300" height="300" src="6.png" width="400"/>
+     <div class="gallery-caption">
+      Cozy Winter Night ❄️
+     </div>
+    </div>
+    <div aria-label="City Lights Date photo" class="gallery-item relative rounded-xl overflow-hidden shadow-lg cursor-pointer animate-on-scroll" style="transition-delay: 200ms;" tabindex="0">
+     <img alt="Debesh and Stuti enjoying city lights at night with glowing pink and gold reflections" class="w-full h-48 object-cover transition-transform duration-300" height="300" src="7.png" width="400"/>
+     <div class="gallery-caption">
+      Café Date
+     </div>
+    </div>
+    <div aria-label="Picnic in the Park photo" class="gallery-item relative rounded-xl overflow-hidden shadow-lg cursor-pointer animate-on-scroll" style="transition-delay: 300ms;" tabindex="0">
+     <img alt="Debesh and Stuti having a picnic on a pastel pink blanket surrounded by flowers and sunshine" class="w-full h-48 object-cover transition-transform duration-300" height="300" src="8.png" width="400"/>
+     <div class="gallery-caption">
+      Wedding Outfits 🌸
+     </div>
+    </div>
+   </div>
+  </section>
+  <section class="max-w-4xl mx-auto px-6 py-16 scroll-mt-20" id="game">
+   <h2 class="text-4xl cursive text-pink-700 font-bold mb-12 text-center select-none animate-on-scroll">
+    Catch the Falling Hearts 🎮
+   </h2>
+   <div aria-label="Catch the falling hearts game area" class="relative bg-pink-50 rounded-3xl shadow-lg h-96 overflow-hidden select-none animate-on-scroll" id="game-area" role="application" tabindex="0">
+    <div class="absolute top-4 left-4 text-pink-700 font-semibold text-xl cursive select-none" id="score">
+     Score: 0
+    </div>
+    <div aria-live="assertive" class="absolute inset-0 flex flex-col justify-center items-center bg-pink-100 bg-opacity-90 rounded-3xl text-pink-700 text-center p-6 text-2xl cursive font-bold hidden z-10" id="game-message" role="alert">
+    </div>
+   </div>
+  </section>
+  <section class="max-w-3xl mx-auto px-6 py-16 scroll-mt-20" id="quiz">
+   <h2 class="text-4xl cursive text-pink-700 font-bold mb-12 text-center select-none animate-on-scroll">
+    Couple Quiz
+   </h2>
+   <form aria-label="Couple quiz form" class="bg-pink-50 rounded-3xl shadow-lg p-8 space-y-8 animate-on-scroll" id="quiz-form">
+    <div>
+     <p class="text-pink-700 font-semibold text-xl mb-4 cursive select-none">
+      1. Where did i first saw you ?
+     </p>
+     <fieldset aria-labelledby="q1-label" class="space-y-2" role="radiogroup">
+      <label class="flex items-center space-x-3 cursor-pointer">
+       <input class="accent-pink-600" name="q1" required="" type="radio" value="a"/>
+       <span>
+        Indian Food Park
+       </span>
+      </label>
+      <label class="flex items-center space-x-3 cursor-pointer">
+       <input name="q1" type="radio" value="b"/>
+       <span>
+        Hotel Royal Palace
+       </span>
+      </label>
+      <label class="flex items-center space-x-3 cursor-pointer">
+       <input name="q1" type="radio" value="c"/>
+       <span>
+        Bhagirathi Park
+       </span>
+      </label>
+     </fieldset>
+    </div>
+    <div>
+     <p class="text-pink-700 font-semibold text-xl mb-4 cursive select-none">
+      2. What was our very first proper date?
+     </p>
+     <fieldset aria-labelledby="q2-label" class="space-y-2" role="radiogroup">
+      <label class="flex items-center space-x-3 cursor-pointer">
+       <input class="accent-pink-600" name="q2" required="" type="radio" value="a"/>
+       <span>
+        Beach walk in Vizag
+       </span>
+      </label>
+      <label class="flex items-center space-x-3 cursor-pointer">
+       <input name="q2" type="radio" value="b"/>
+       <span>
+        Dinner date
+       </span>
+      </label>
+      <label class="flex items-center space-x-3 cursor-pointer">
+       <input name="q2" type="radio" value="c"/>
+       <span>
+        Movie Night
+       </span>
+      </label>
+     </fieldset>
+    </div>
+    <div>
+     <p class="text-pink-700 font-semibold text-xl mb-4 cursive select-none">
+      3. What’s my (Dev’s) favorite thing about you
+     </p>
+     <fieldset aria-labelledby="q3-label" class="space-y-2" role="radiogroup">
+      <label class="flex items-center space-x-3 cursor-pointer">
+       <input class="accent-pink-600" name="q3" required="" type="radio" value="a"/>
+       <span>
+        Smile
+       </span>
+      </label>
+      <label class="flex items-center space-x-3 cursor-pointer">
+       <input name="q3" type="radio" value="b"/>
+       <span>
+        Eyes
+       </span>
+      </label>
+      <label class="flex items-center space-x-3 cursor-pointer">
+       <input name="q3" type="radio" value="c"/>
+       <span>
+        Voice
+       </span>
+      </label>
+     </fieldset>
+    </div>
+    <div>
+      <p class="text-pink-700 font-semibold text-xl mb-4 cursive select-none">
+       4. What’s our go-to comfort food together?
+      </p>
+      <fieldset aria-labelledby="q4-label" class="space-y-2" role="radiogroup">
+       <label class="flex items-center space-x-3 cursor-pointer">
+        <input class="accent-pink-600" name="q4" required="" type="radio" value="a"/>
+        <span>
+         Momos
+        </span>
+       </label>
+       <label class="flex items-center space-x-3 cursor-pointer">
+        <input name="q4" type="radio" value="b"/>
+        <span>
+        Pizza
+        </span>
+       </label>
+       <label class="flex items-center space-x-3 cursor-pointer">
+        <input name="q4" type="radio" value="c"/>
+        <span>
+         Pani Puri
+        </span>
+       </label>
+      </fieldset>
+     </div>
+     <div>
+      <p class="text-pink-700 font-semibold text-xl mb-4 cursive select-none">
+       5. What song reminds me of us the most?
+      </p>
+      <fieldset aria-labelledby="q5-label" class="space-y-2" role="radiogroup">
+       <label class="flex items-center space-x-3 cursor-pointer">
+        <input class="accent-pink-600" name="q5" required="" type="radio" value="a"/>
+        <span>
+         Heer Ranjha
+        </span>
+       </label>
+       <label class="flex items-center space-x-3 cursor-pointer">
+        <input name="q5" type="radio" value="b"/>
+        <span>
+         Tera Chehera
+        </span>
+       </label>
+       <label class="flex items-center space-x-3 cursor-pointer">
+        <input name="q5" type="radio" value="c"/>
+        <span>
+         Mere Liye
+        </span>
+       </label>
+      </fieldset>
+     </div>
+     <div>
+      <p class="text-pink-700 font-semibold text-xl mb-4 cursive select-none">
+       6. Which dog breed do we love the most?
+      </p>
+      <fieldset aria-labelledby="q6-label" class="space-y-2" role="radiogroup">
+       <label class="flex items-center space-x-3 cursor-pointer">
+        <input class="accent-pink-600" name="q6" required="" type="radio" value="a"/>
+        <span>
+         Labrador
+        </span>
+       </label>
+       <label class="flex items-center space-x-3 cursor-pointer">
+        <input name="q6" type="radio" value="b"/>
+        <span>
+         Husky
+        </span>
+       </label>
+       <label class="flex items-center space-x-3 cursor-pointer">
+        <input name="q6" type="radio" value="c"/>
+        <span>
+         German Shepherd
+        </span>
+       </label>
+      </fieldset>
+     </div>
+     <div>
+      <p class="text-pink-700 font-semibold text-xl mb-4 cursive select-none">
+       7. What was the date i confessed to you?
+      </p>
+      <fieldset aria-labelledby="q7-label" class="space-y-2" role="radiogroup">
+       <label class="flex items-center space-x-3 cursor-pointer">
+        <input class="accent-pink-600" name="q7" required="" type="radio" value="a"/>
+        <span>
+         25/01/2022
+        </span>
+       </label>
+       <label class="flex items-center space-x-3 cursor-pointer">
+        <input name="q7" type="radio" value="b"/>
+        <span>
+         24/05/2022
+        </span>
+       </label>
+       <label class="flex items-center space-x-3 cursor-pointer">
+        <input name="q7" type="radio" value="c"/>
+        <span>
+         21/06/2022
+        </span>
+       </label>
+      </fieldset>
+     </div>
+     <div>
+      <p class="text-pink-700 font-semibold text-xl mb-4 cursive select-none">
+       8. 	Which small gesture of yours melts my heart every time?
+      </p>
+      <fieldset aria-labelledby="q8-label" class="space-y-2" role="radiogroup">
+       <label class="flex items-center space-x-3 cursor-pointer">
+        <input class="accent-pink-600" name="q8" required="" type="radio" value="a"/>
+        <span>
+        Holding my hand
+        </span>
+       </label>
+       <label class="flex items-center space-x-3 cursor-pointer">
+        <input name="q8" type="radio" value="b"/>
+        <span>
+         Playing with my hair
+        </span>
+       </label>
+       <label class="flex items-center space-x-3 cursor-pointer">
+        <input name="q8" type="radio" value="c"/>
+        <span>
+          Random “I love you”
+        </span>
+       </label>
+      </fieldset>
+     </div>
+     <div>
+      <p class="text-pink-700 font-semibold text-xl mb-4 cursive select-none">
+       9. During our first long conversation, what did we talk about most?
+      </p>
+      <fieldset aria-labelledby="q9-label" class="space-y-2" role="radiogroup">
+       <label class="flex items-center space-x-3 cursor-pointer">
+        <input class="accent-pink-600" name="q9" required="" type="radio" value="a"/>
+        <span>
+         Dreams
+        </span>
+       </label>
+       <label class="flex items-center space-x-3 cursor-pointer">
+        <input name="q9" type="radio" value="b"/>
+        <span>
+         Holidays
+        </span>
+       </label>
+       <label class="flex items-center space-x-3 cursor-pointer">
+        <input name="q9" type="radio" value="c"/>
+        <span>
+         Family
+        </span>
+       </label>
+      </fieldset>
+     </div>
+     <div>
+      <p class="text-pink-700 font-semibold text-xl mb-4 cursive select-none">
+       10. What’s our ultimate relationship strength
+      </p>
+      <fieldset aria-labelledby="q10-label" class="space-y-2" role="radiogroup">
+       <label class="flex items-center space-x-3 cursor-pointer">
+        <input class="accent-pink-600" name="q10" required="" type="radio" value="a"/>
+        <span>
+         Trust
+        </span>
+       </label>
+       <label class="flex items-center space-x-3 cursor-pointer">
+        <input name="q10" type="radio" value="b"/>
+        <span>
+         Understanding
+        </span>
+       </label>
+       <label class="flex items-center space-x-3 cursor-pointer">
+        <input name="q10" type="radio" value="c"/>
+        <span>
+         Friendship
+        </span>
+       </label>
+       <label class="flex items-center space-x-3 cursor-pointer">
+        <input name="q10" type="radio" value="d"/>
+        <span>
+         All of the above
+        </span>
+       </label>
+      </fieldset>
+     </div>
+    <button class="w-full bg-pink-600 hover:bg-pink-700 text-white font-semibold py-3 rounded-full cursive text-xl transition focus:outline-none focus:ring-4 focus:ring-pink-300" type="submit">
+     Submit Answers
+    </button>
+   </form>
+   <div aria-live="polite" class="mt-8 text-center text-pink-700 font-bold text-2xl cursive hidden" id="quiz-result" role="alert">
+   </div>
+  </section>
+  <section class="max-w-4xl mx-auto px-6 py-16 scroll-mt-20" id="secret">
+   <h2 class="text-4xl cursive text-pink-700 font-bold mb-12 text-center select-none animate-on-scroll">
+    Secret Hidden Page 🔐
+   </h2>
+   <form aria-label="Secret page password form" class="max-w-md mx-auto flex flex-col space-y-4 animate-on-scroll" id="secret-form">
+    <label class="text-pink-700 font-semibold cursive text-lg select-none" for="secret-password">
+     Enter Anniversary Date (DDMMYYYY):
+    </label>
+    <input aria-describedby="secret-error" class="p-3 rounded-lg border border-pink-300 focus:outline-none focus:ring-4 focus:ring-pink-300 text-pink-700 font-semibold" id="secret-password" name="secret-password" placeholder="e.g. 15062021" required="" type="password"/>
+    <button class="bg-pink-600 hover:bg-pink-700 text-white font-semibold py-3 rounded-full cursive text-xl transition focus:outline-none focus:ring-4 focus:ring-pink-300" type="submit">
+     Unlock Secret
+    </button>
+    <p class="text-red-600 font-semibold text-center hidden" id="secret-error" role="alert">
+    </p>
+   </form>
+   <div class="hidden mt-12 bg-pink-50 rounded-3xl shadow-lg p-8 text-pink-700 cursive space-y-8" id="secret-content">
+    <div class="text-center">
+     <h3 class="text-3xl font-bold mb-4">
+      A Surprise Just For You 💖
+     </h3>
+     <video aria-label="Surprise video message from Debesh to Stuti" class="mx-auto rounded-xl shadow-lg w-72 h-[512px] object-cover" controls="">
+      <source src="1756232259222835.mp4" type="video/mp4"/>
+      <source src="1756232259222835.mp4" type="video/mp4"/>
+      Your browser does not support the video tag.
+     </video>
+    </div>
+    <div>
+     <h3 class="text-3xl font-bold mb-4 text-center">
+      Future Dreams Board 🌟
+     </h3>
+     <ul class="list-disc list-inside space-y-2 text-lg max-w-xl mx-auto">
+      <li>1. Shift to Dubai – Building our new life in a city of dreams, creating a home that reflects both love and ambition.</li>
+      <li>2. Start Our Personal Brand – Launching something that’s truly ours — a brand that carries our vision, creativity, and passion to the world.</li>
+      <li>3. Create Our Lovely, Cozy & Luxurious Home – A place that feels like us : filled with warmth, comfort, and a touch of luxury, where love lives in every corner.</li>
+      <li>4. Travel the World Together – From Paris to Santorini, Maldives to New York , exploring every corner of the world, hand in hand.</li>
+      <li>Take Care of Our Parents – Giving back the love, comfort, and security they’ve given us, fulfilling their wishes.</li>
+     </ul>
+    </div>
+   </div>
+  </section>
+  <section class="relative flex flex-col justify-center items-center h-screen text-center px-6 py-20 scroll-mt-20 bg-pink-50" id="ending">
+   <h2 class="cursive text-6xl sm:text-7xl font-extrabold text-pink-700 drop-shadow-lg select-none mb-8 animate-on-scroll">
+    Happy 3rd Anniversary, Stuti
+    <span aria-label="heart" role="img">
+     💕
+    </span>
+   </h2>
+   <button class="px-8 py-4 bg-pink-600 hover:bg-pink-700 text-white rounded-full text-2xl cursive font-bold shadow-lg focus:outline-none focus:ring-4 focus:ring-pink-300 transition select-none animate-on-scroll" style="transition-delay: 200ms;" id="cta-forever">
+    Here’s to Forever → Infinity
+    <span aria-label="infinity" role="img">
+     ♾️
+    </span>
+   </button>
+  </section>
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // --- Typewriter Effect ---
+    const heroTitle = document.getElementById('hero-title');
+    const textToType = "Happy 3 Years of Love 💕<br>Geluu Babyy";
+    let i = 0;
+    heroTitle.innerHTML = ''; // Clear existing content
+
+    function typeWriter() {
+        if (i < textToType.length) {
+            if (textToType.substring(i, i + 4) === "<br>") {
+                heroTitle.innerHTML += "<br>";
+                i += 4;
+            } else {
+                heroTitle.innerHTML += textToType.charAt(i);
+                i++;
+            }
+            setTimeout(typeWriter, 100);
+        } else {
+            heroTitle.innerHTML = textToType; // Ensure full text is displayed
+        }
+    }
+    setTimeout(typeWriter, 500);
+
+    // --- Scroll Animations ---
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        rootMargin: '0px',
+        threshold: 0.1
+    });
+
+    const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
+    elementsToAnimate.forEach(el => {
+        observer.observe(el);
+    });
+
+    // --- Existing JavaScript ---
+    const floatingHeartsContainer = document.getElementById('floating-hearts');
+    function createFloatingHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * window.innerWidth + 'px';
+      heart.style.animationDuration = 5 + Math.random() * 5 + 's';
+      heart.style.animationDelay = Math.random() * 5 + 's';
+      floatingHeartsContainer.appendChild(heart);
+      setTimeout(() => heart.remove(), 10000);
+    }
+    for(let i=0; i<30; i++) {
+        setTimeout(createFloatingHeart, i * 300);
+    }
+    setInterval(createFloatingHeart, 1000);
+
+    const glowingStarsContainer = document.getElementById('glowing-stars');
+    function createStar() {
+        const star = document.createElement('div');
+        star.classList.add('star');
+        star.style.top = Math.random() * window.innerHeight + 'px';
+        star.style.left = Math.random() * window.innerWidth + 'px';
+        star.style.animationDuration = 2 + Math.random() * 3 + 's';
+        glowingStarsContainer.appendChild(star);
+        setTimeout(() => star.remove(), 6000);
+    }
+    for(let i=0; i<40; i++) {
+        setTimeout(createStar, i * 150);
+    }
+    setInterval(createStar, 2000);
+
+    const bgMusic = document.getElementById('bg-music');
+    const musicToggleBtn = document.getElementById('music-toggle');
+    let musicPlaying = false;
+    musicToggleBtn.addEventListener('click', () => {
+        if(musicPlaying) {
+            bgMusic.pause();
+            musicToggleBtn.innerHTML = 'Play Music <i class="fas fa-music ml-2"></i>';
+        } else {
+            bgMusic.play();
+            musicToggleBtn.innerHTML = 'Pause Music <i class="fas fa-pause ml-2"></i>';
+        }
+        musicPlaying = !musicPlaying;
+    });
+
+    const envelopes = document.querySelectorAll('.envelope');
+    envelopes.forEach(env => {
+        env.addEventListener('click', () => env.classList.toggle('open'));
+        env.addEventListener('keydown', e => {
+            if(e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                env.classList.toggle('open');
+            }
+        });
+    });
+
+    const gameArea = document.getElementById('game-area');
+    const scoreDisplay = document.getElementById('score');
+    const gameMessage = document.getElementById('game-message');
+    let gameScore = 0;
+    let gameHearts = [];
+    let gameInterval;
+    let gameRunning = false;
+    const maxScore = 10;
+
+    function createGameHeart() {
+        const heart = document.createElement('div');
+        heart.classList.add('game-heart');
+        heart.style.left = Math.random() * (gameArea.clientWidth - 30) + 'px';
+        heart.style.top = '-30px';
+        gameArea.appendChild(heart);
+        gameHearts.push(heart);
+        let fallDuration = 4000 + Math.random() * 3000;
+        let start = null;
+        function fall(timestamp) {
+            if(!start) start = timestamp;
+            let progress = timestamp - start;
+            let percent = progress / fallDuration;
+            if(percent < 1) {
+                heart.style.top = percent * gameArea.clientHeight + 'px';
+                requestAnimationFrame(fall);
+            } else {
+                heart.remove();
+                gameHearts = gameHearts.filter(h => h !== heart);
+            }
+        }
+        requestAnimationFrame(fall);
+        heart.addEventListener('click', () => {
+            if(!gameRunning) return;
+            gameScore++;
+            scoreDisplay.textContent = `Score: ${gameScore}`;
+            heart.remove();
+            gameHearts = gameHearts.filter(h => h !== heart);
+            if(gameScore >= maxScore) endGame(true);
+        });
+    }
+
+    function startGame() {
+        if(gameRunning) return;
+        gameRunning = true;
+        gameScore = 0;
+        scoreDisplay.textContent = `Score: ${gameScore}`;
+        gameMessage.classList.add('hidden');
+        gameInterval = setInterval(createGameHeart, 800);
+        gameHearts.forEach(h => h.remove());
+        gameHearts = [];
+    }
+
+    function endGame(won) {
+        gameRunning = false;
+        clearInterval(gameInterval);
+        gameHearts.forEach(h => h.remove());
+        gameHearts = [];
+        gameMessage.textContent = won ? "You’ll always be my forever ❤️" : "Game Over! Try again 💕";
+        gameMessage.classList.remove('hidden');
+    }
+
+    gameArea.addEventListener('click', () => {
+        if(!gameRunning) startGame();
+    });
+
+    const quizForm = document.getElementById('quiz-form');
+    const quizResult = document.getElementById('quiz-result');
+    quizForm.addEventListener('submit', e => {
+        e.preventDefault();
+        const formData = new FormData(quizForm);
+        let score = 0;
+        const correctAnswers = {
+            q1: 'a', q2: 'b', q3: 'b', q4: 'b', q5: 'a',
+            q6: 'b', q7: 'b', q8: 'c', q9: 'a', q10: 'd'
+        };
+        let resultMessage = '';
+        for (const [question, correctAnswer] of Object.entries(correctAnswers)) {
+            if (formData.get(question) === correctAnswer) {
+                score++;
+            }
+        }
+        quizResult.innerHTML = score === 10
+            ? "Perfect Score! That’s why we’re perfect together 👩🏻‍❤️‍👨🏻"
+            : `You scored ${score} out of 10. Keep loving and learning! `;
+        quizResult.classList.remove('hidden');
+        quizResult.focus();
+    });
+
+    const secretForm = document.getElementById('secret-form');
+    const secretPasswordInput = document.getElementById('secret-password');
+    const secretError = document.getElementById('secret-error');
+    const secretContent = document.getElementById('secret-content');
+    const anniversaryPassword = '03092023';
+
+    secretForm.addEventListener('submit', e => {
+        e.preventDefault();
+        secretError.classList.add('hidden');
+        if(secretPasswordInput.value === anniversaryPassword) {
+            secretContent.classList.remove('hidden');
+            secretContent.classList.add('hidden-page');
+            secretForm.classList.add('hidden');
+        } else {
+            secretError.textContent = 'Incorrect password. Please try again.';
+            secretError.classList.remove('hidden');
+        }
+    });
+
+    const fallingPetalsContainer = document.getElementById('falling-petals');
+    const fireworksCanvas = document.getElementById('fireworks');
+    const endingSection = document.getElementById('ending');
+    let endingAnimationsStarted = false;
+
+    function createPetal() {
+        const petal = document.createElement('div');
+        petal.classList.add('petal');
+        petal.style.left = Math.random() * window.innerWidth + 'px';
+        petal.style.animationDuration = 7 + Math.random() * 5 + 's';
+        petal.style.animationDelay = Math.random() * 7 + 's';
+        fallingPetalsContainer.appendChild(petal);
+        setTimeout(() => petal.remove(), 12000);
+    }
+
+    const ctx = fireworksCanvas.getContext('2d');
+    let cw, ch;
+    let fireworks = [];
+    let particles = [];
+    let animationFrameId;
+
+    function resizeCanvas() {
+        cw = fireworksCanvas.width = window.innerWidth;
+        ch = fireworksCanvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    class Firework {
+        constructor(sx, sy, tx, ty) {
+            this.x = this.sx = sx;
+            this.y = this.sy = sy;
+            this.tx = tx;
+            this.ty = ty;
+            this.distanceToTarget = dist(sx, sy, tx, ty);
+            this.distanceTraveled = 0;
+            this.coordinates = [];
+            this.coordinateCount = 3;
+            while(this.coordinateCount--) this.coordinates.push([this.x, this.y]);
+            this.angle = Math.atan2(ty - sy, tx - sx);
+            this.speed = 3;
+            this.acceleration = 1.05;
+            this.brightness = random(50, 70);
+        }
+        update(index) {
+            this.coordinates.pop();
+            this.coordinates.unshift([this.x, this.y]);
+            this.speed *= this.acceleration;
+            let vx = Math.cos(this.angle) * this.speed;
+            let vy = Math.sin(this.angle) * this.speed;
+            this.distanceTraveled = dist(this.sx, this.sy, this.x + vx, this.y + vy);
+            if (this.distanceTraveled >= this.distanceToTarget) {
+                createParticles(this.tx, this.ty);
+                fireworks.splice(index, 1);
+            } else {
+                this.x += vx;
+                this.y += vy;
+            }
+        }
+        draw() {
+            ctx.beginPath();
+            ctx.moveTo(this.coordinates[this.coordinates.length - 1][0], this.coordinates[this.coordinates.length - 1][1]);
+            ctx.lineTo(this.x, this.y);
+            ctx.strokeStyle = `hsl(${random(0, 360)}, 100%, ${this.brightness}%)`;
+            ctx.stroke();
+        }
+    }
+
+    class Particle {
+        constructor(x, y) {
+            this.x = x;
+            this.y = y;
+            this.coordinates = [];
+            this.coordinateCount = 5;
+            while(this.coordinateCount--) this.coordinates.push([this.x, this.y]);
+            this.angle = random(0, Math.PI * 2);
+            this.speed = random(1, 10);
+            this.friction = 0.95;
+            this.gravity = 0.7;
+            this.hue = random(0, 360);
+            this.brightness = random(50, 80);
+            this.alpha = 1;
+            this.decay = random(0.015, 0.03);
+        }
+        update(index) {
+            this.coordinates.pop();
+            this.coordinates.unshift([this.x, this.y]);
+            this.speed *= this.friction;
+            this.x += Math.cos(this.angle) * this.speed;
+            this.y += Math.sin(this.angle) * this.speed + this.gravity;
+            this.alpha -= this.decay;
+            if(this.alpha <= 0) particles.splice(index, 1);
+        }
+        draw() {
+            ctx.beginPath();
+            ctx.moveTo(this.coordinates[this.coordinates.length - 1][0], this.coordinates[this.coordinates.length - 1][1]);
+            ctx.lineTo(this.x, this.y);
+            ctx.strokeStyle = `hsla(${this.hue}, 100%, ${this.brightness}%, ${this.alpha})`;
+            ctx.stroke();
+        }
+    }
+
+    function createParticles(x, y) {
+        let particleCount = 30;
+        while(particleCount--) particles.push(new Particle(x, y));
+    }
+
+    function dist(ax, ay, bx, by) { return Math.sqrt(Math.pow(bx - ax, 2) + Math.pow(by - ay, 2)); }
+    function random(min, max) { return Math.random() * (max - min) + min; }
+
+    function loop() {
+        animationFrameId = requestAnimationFrame(loop);
+        ctx.globalCompositeOperation = 'destination-out';
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.2)';
+        ctx.fillRect(0, 0, cw, ch);
+        ctx.globalCompositeOperation = 'lighter';
+        let i = fireworks.length;
+        while(i--) fireworks[i].draw(), fireworks[i].update(i);
+        let j = particles.length;
+        while(j--) particles[j].draw(), particles[j].update(j);
+        if(Math.random() < 0.05) fireworks.push(new Firework(cw / 2, ch, random(0, cw), random(0, ch / 2)));
+    }
+
+    function onScroll() {
+        const rect = endingSection.getBoundingClientRect();
+        if(rect.top < window.innerHeight && rect.bottom >= 0 && !endingAnimationsStarted) {
+            endingAnimationsStarted = true;
+            fallingPetalsContainer.classList.remove('hidden');
+            fireworksCanvas.classList.remove('hidden');
+            let petalInterval = setInterval(createPetal, 400);
+            setTimeout(() => clearInterval(petalInterval), 20000);
+            loop();
+        }
+    }
+    window.addEventListener('scroll', onScroll);
+    onScroll();
+
+    document.getElementById('cta-forever').addEventListener('click', () => {
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    });
+  });
+  </script>
+ </body>
+</html>
